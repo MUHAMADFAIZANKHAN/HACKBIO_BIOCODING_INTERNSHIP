@@ -1,6 +1,12 @@
 # Hackbio Bio Coding Internship
 
-## Stage 0 Task Explanation
+## Contributors
+
+Slack_username | email 
+---------|----------|
+ FAIZAN | faizanjeee@hotmail.com|
+
+## Stage 0 task
 
 This task involves organizing personal information into a simple structure and displaying it.
 
