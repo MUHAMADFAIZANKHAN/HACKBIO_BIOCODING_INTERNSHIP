@@ -2,7 +2,7 @@
 
 #STAGE 0
 
-# Storing personal details in variables likewise below "name" is variable and the information store in this variable is "MUHAMMAD FAIZAN KHAN"
+# Storing personal details in variables as shown below "name" is variable and the information store in this variable is "MUHAMMAD FAIZAN KHAN"
 "
 name = "Muhammad Faizan Khan"
 slack_username = "Faizan"
