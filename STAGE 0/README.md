@@ -5,7 +5,7 @@
 Slack_username | email 
 ---------|----------|
  @FAIZAN | faizanjeee@hotmail.com|
-
+ @Elsaeed | saiduabdulkadir38@gmail.com
 ## Stage 0 task
 
 This task involves organizing personal information into a simple structure and displaying it.
