@@ -4,7 +4,7 @@
 
 Slack_username | email 
 ---------|----------|
- FAIZAN | faizanjeee@hotmail.com|
+ @FAIZAN | faizanjeee@hotmail.com|
 
 ## Stage 0 task
 
