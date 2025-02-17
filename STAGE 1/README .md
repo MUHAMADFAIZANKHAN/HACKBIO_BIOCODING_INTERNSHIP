@@ -1,4 +1,4 @@
-# Hackbio Bio CodingInternship
+# Hackbio Bio Coding Internship
 
 ## Contributors
 
