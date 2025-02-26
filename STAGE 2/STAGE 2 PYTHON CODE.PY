@@ -179,12 +179,9 @@ print("Top 5 downregulated genes:", downregulated_genes_sorted["Gene"].head(5).t
 data_path = "https://raw.githubusercontent.com/HackBio-Internship/public_datasets/main/R/nhanes.csv"
 df = pd.read_csv(data_path, sep=",")
 
-## Task number 1
 # Process all NA
 df_process = df.dropna()
 
-
-## Task number 2
 # Create and save the first histogram of BMI
 df_BMI = df.dropna(subset=["BMI"])  # Removes rows with missing BMI values from the DataFrame
 plt.figure(figsize=(10, 6))  # Sets the figure size for the histogram plot
@@ -222,8 +219,6 @@ plt.xlabel('Weight in Pounds')  # Labels the X-axis
 plt.savefig('histogram_weight_in_pounds.png')  # Saves the generated histogram to a PNG file
 plt.show()  # Displays the histogram
 
-## Task number 3
-
 # Calculate the mean of the 'Pulse' column
 mean_pulse = df["Pulse"].mean()
 
@@ -234,8 +229,6 @@ mean_pulse_rounded = round(mean_pulse, 5)
 print(f"Mean Pulse (rounded to 5 decimal places): {mean_pulse_rounded}")
 # Output: Mean Pulse (rounded to 5 decimal places): 73.63382
 
-## Exercise number 3
-
 # Calculate the maximum value of the 'BPDia' column
 max_BPDia = df["BPDia"].max()
 
@@ -244,12 +237,10 @@ min_BPDia = df["BPDia"].min()
 
 
 # Print the minimum and maximum values
-print(f"Minimum Diastolic Blood Pressure: {min_BPDia}")
-# Output: Minimum Diastolic Blood Pressure: 0.0
-print(f"Maximum Diastolic Blood Pressure: {max_BPDia}")
-# Output: Maximum Diastolic Blood Pressure: 116.0
 
-## Task number 4
+print(f"Minimum Diastolic Blood Pressure: {min_BPDia}")
+
+print(f"Maximum Diastolic Blood Pressure: {max_BPDia}")
 
 # Calculate descriptive statistics for the 'Income' column
 describe_income = df["Income"].describe()
@@ -271,7 +262,6 @@ print(f"Standard Deviation (std): {income_std_rounded}")
 # Output: Standard Deviation (std): 33489.76064
 print(f"Variance: {income_variance_rounded}")
 print(f"Variance: {income_variance_rounded}")
-# Output: Variance: 1121564067.88888
 
 ## Task number 5
 plt.figure(figsize=(10, 6))  # Set the figure size
@@ -300,24 +290,20 @@ plt.ylabel('Height')  # Label the Y-axis
 plt.savefig('scatterplot_weight_vs_height_diabetes.png')  # Save the plot as a PNG file
 plt.show()  # Display the plot
 
-## Task number 6
 # Age vs. Gender
 male_age = df[df['Gender'] == 'male']['Age']
 female_age = df[df['Gender'] == 'female']['Age']
 t_stat, p_value = stats.ttest_ind(male_age.dropna(), female_age.dropna())
 print(f"T-Test Age vs. Gender - p-value: {p_value:.5f}")
-# Output: T-Test Age vs. Gender - p-value: 0.08020
 
 # BMI vs. Diabetes
 bmi_no_diabetes = df[df['Diabetes'] == 'No']['BMI']
 bmi_diabetes = df[df['Diabetes'] == 'Yes']['BMI']
 t_stat, p_value = stats.ttest_ind(bmi_no_diabetes.dropna(), bmi_diabetes.dropna(), equal_var=False)
 print(f"T-Test BMI vs. Diabetes - p-value: {p_value:.5f}")
-# Output: T-Test BMI vs. Diabetes - p-value: 0.00000
 
 # Alcohol per year vs. Marital Status
 alcohol_single = df[df['RelationshipStatus'] == 'Single']["AlcoholYear"]
 alcohol_committed = df[df['RelationshipStatus'] == 'Committed']["AlcoholYear"]
 t_stat, p_value = stats.ttest_ind(alcohol_single.dropna(), alcohol_committed.dropna(), equal_var=False)
 print(f"T-Test Alcohol vs. Marital Status - p-value: {p_value:.5f}")
-# Output: T-Test Alcohol vs. Marital Status - p-value: 0.00000
