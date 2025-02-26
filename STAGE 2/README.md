@@ -1,5 +1,11 @@
 # HackBio BioCoding Internship - Stage 2 Submission
 
+## Contributors
+
+| Slack Username | Email |
+|---------------|-----------------------------|
+| @FAIZAN      | faizanjeee@hotmail.com      |
+
 ## Task 2.4: Protein Mutation Analysis
 
 ### Objective
@@ -85,7 +91,7 @@ plt.axis('equal')
 plt.savefig('Pie_chart_of_Frequency_of_Amino_Acids.png')
 plt.show()
 ```
-
+![Pie chart of Frequency of Amino Acids](FIGURES/Pie%20chart%20of%20Frequency%20of%20Amino%20Acids.png)
 ---
 
 ## Task 2.6: Gene Expression Analysis
@@ -137,6 +143,7 @@ plt.ylabel('-log10(p-value)')
 plt.legend(title='Gene Regulation')
 plt.show()
 ```
+![VOLCANO PLOT](FIGURES/Volcano%20Plot.png)
 
 #### 5. Extracting Differentially Expressed Genes
 
@@ -176,7 +183,7 @@ df_process = df.dropna()
 ```
 
 #### 3. Generate Histograms
-
+#### Histogram of BMI
 ```python
 plt.figure(figsize=(10, 6))
 sns.histplot(df_process["BMI"], kde=True)
@@ -184,8 +191,141 @@ plt.title('Histogram of BMI')
 plt.xlabel('BMI')
 plt.show()
 ```
-
+![HISTOGRAM_BMI](FIGURES/histogram_bmi.png)
 ---
+#### Histogram of Weight
+```python
+df_Weight = df.dropna(subset=["Weight"])
+plt.figure(figsize=(10, 6))
+sns.histplot(df_Weight["Weight"])
+plt.title('Histogram of Weight')
+plt.xlabel('Weight')
+plt.savefig('histogram_weight.png')
+plt.show()
+```
+![HISTOGRAM_Weight](FIGURES/histogram_weight.png)
+#### Histogram of Age
+```python
+df_Age = df.dropna(subset=["Age"])
+plt.figure(figsize=(10, 6))
+sns.histplot(df_Age["Age"])
+plt.title('Histogram of Age')
+plt.xlabel('Age')
+plt.savefig('histogram_age.png')
+plt.show()
+```
+![HISTOGRAM_Age](FIGURES/histogram_age.png)
+#### Histogram of Weight in Pounds
+```python
+df_Weight_in_Pounds = df.dropna(subset=["Weight"])
+df_Weight_in_Pounds = df["Weight"] * 2.2
+plt.figure(figsize=(10, 6))
+sns.histplot(df_Weight_in_Pounds, bins=20)
+plt.title('Histogram of Weight in Pounds')
+plt.xlabel('Weight in Pounds')
+plt.savefig('histogram_weight_in_pounds.png')
+plt.show()
+```
+![HISTOGRAM_Weight_in_Pounds.png](FIGURES/histogram_weight_in_pounds.png)
+#### 4. Mean Pulse
+```python
+mean_pulse = df["Pulse"].mean()
+mean_pulse_rounded = round(mean_pulse, 5)
+print(f"Mean Pulse (rounded to 5 decimal places): {mean_pulse_rounded}")
+```
+**Output:**  
+Mean Pulse (rounded to 5 decimal places): 73.63382
+
+#### 5. Blood Pressure
+```python
+max_BPDia = df["BPDia"].max()
+min_BPDia = df["BPDia"].min()
+print(f"Minimum Diastolic Blood Pressure: {min_BPDia}")
+print(f"Maximum Diastolic Blood Pressure: {max_BPDia}")
+```
+**Output:**  
+Minimum Diastolic Blood Pressure: 0.0  
+Maximum Diastolic Blood Pressure: 116.0
+
+#### 6. Income Statistics
+```python
+describe_income = df["Income"].describe()
+income_std = describe_income['std']
+income_variance = df["Income"].var()
+income_std_rounded = round(income_std, 5)
+income_variance_rounded = round(income_variance, 5)
+print(f"Standard Deviation (std): {income_std_rounded}")
+print(f"Variance: {income_variance_rounded}")
+```
+**Output:**  
+Standard Deviation (std): 33489.76064  
+Variance: 1121564067.88888  
+
+#### 7. Scatterplots
+
+#### Weight vs Height by Gender
+```python
+plt.figure(figsize=(10, 6))
+sns.scatterplot(data=df, x="Weight", y="Height", hue="Gender")
+plt.title('Scatterplot of Weight vs Height (Gender)')
+plt.xlabel('Weight')
+plt.ylabel('Height')
+plt.savefig('scatterplot_weight_vs_height_gender.png')
+plt.show()
+```
+![Scatterplot_Weight_vs Height_Gender](FIGURES/scatterplot_weight_vs_height_gender.png)
+#### Weight vs Height by Smoking Status
+```python
+plt.figure(figsize=(10, 6))
+sns.scatterplot(data=df, x="Weight", y="Height", hue="SmokingStatus")
+plt.title('Scatterplot of Weight vs Height (SmokingStatus)')
+plt.xlabel('Weight')
+plt.ylabel('Height')
+plt.savefig('scatterplot_weight_vs_height_smokingstatus.png')
+plt.show()
+```
+![Scatterplot_Weight_vs_Height_Smokingstatus](FIGURES/scatterplot_weight_vs_height_smokingstatus.png)
+#### Weight vs Height by Diabetes
+```python
+plt.figure(figsize=(10, 6))
+sns.scatterplot(data=df, x="Weight", y="Height", hue="Diabetes")
+plt.title('Scatterplot of Weight vs Height (Diabetes)')
+plt.xlabel('Weight')
+plt.ylabel('Height')
+plt.savefig('scatterplot_weight_vs_height_diabetes.png')
+plt.show()
+```
+![Scatterplot_Weight_vs_Height_diabetes.png(FIGURES/scatterplot_weight_vs_height_diabetes.png)
+#### 8. T-Tests
+#### Age vs. Gender
+```python
+male_age = df[df['Gender'] == 'male']['Age']
+female_age = df[df['Gender'] == 'female']['Age']
+t_stat, p_value = stats.ttest_ind(male_age.dropna(), female_age.dropna())
+print(f"T-Test Age vs. Gender - p-value: {p_value:.5f}")
+```
+**Output:**  
+T-Test Age vs. Gender - p-value: 0.08020
+
+#### BMI vs. Diabetes
+```python
+bmi_no_diabetes = df[df['Diabetes'] == 'No']['BMI']
+bmi_diabetes = df[df['Diabetes'] == 'Yes']['BMI']
+t_stat, p_value = stats.ttest_ind(bmi_no_diabetes.dropna(), bmi_diabetes.dropna(), equal_var=False)
+print(f"T-Test BMI vs. Diabetes - p-value: {p_value:.5f}")
+```
+**Output:**  
+T-Test BMI vs. Diabetes - p-value: 0.00000
+
+#### Alcohol per Year vs. Marital Status
+```python
+alcohol_single = df[df['RelationshipStatus'] == 'Single']["AlcoholYear"]
+alcohol_committed = df[df['RelationshipStatus'] == 'Committed']["AlcoholYear"]
+t_stat, p_value = stats.ttest_ind(alcohol_single.dropna(), alcohol_committed.dropna(), equal_var=False)
+print(f"T-Test Alcohol vs. Marital Status - p-value: {p_value:.5f}")
+```
+**Output:**  
+T-Test Alcohol vs. Marital Status - p-value: 0.00000
 
 ## Conclusion
 
