@@ -73,6 +73,7 @@ plt.title('Frequency of Amino Acids')
 plt.savefig('Bar_plot_of_Frequency_of_Amino_Acids.png')
 plt.show()
 ```
+https://github.com/MUHAMADFAIZANKHAN/HACKBIO_BIOCODING_INTERNSHIP/blob/main/STAGE%202/FIGURES/Bar%20plot%20of%20Frequency%20of%20Amino%20Acids.png
 
 **Pie Chart:**
 
