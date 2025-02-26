@@ -63,34 +63,7 @@ plt.axis('equal')
 plt.savefig('Pie chart of Frequency of Amino Acids.png')
 plt.show()
 
-
-## Amino Acid with Highest Impact:
-
-# Glycine (G) is a small and flexible amino acid that significantly impacts protein structure by allowing tight turns and facilitating folding. It is found 1307 times.
-
-## Structural and Functional Properties of Amino Acids with >100 Occurrences:
-
-# Glycine (G): Small and flexible, aids in protein folding.
-
-# Leucine (L): Hydrophobic, stabilizes protein core.
-
-# Isoleucine (I): Hydrophobic, contributes to structural stability.
-
-# Arginine (R): Basic, involved in binding phosphate groups.
-
-# Proline (P): Causes kinks in protein chains, disrupts regular structures.
-
-# Alanine (A): Small, helps in stabilizing protein structure.
-
-# Tyrosine (Y): Polar, involved in signaling and enzyme activity.
-
-# Valine (V): Hydrophobic, stabilizes protein structure.
-
-# Tryptophan (W): Largest amino acid, involved in protein-protein interactions.    
-
 # Task Code 2.6
-
-
 
 # URL of the dataset
 url_data = "https://gist.githubusercontent.com/stephenturner/806e31fce55a8b7175af/raw/1a507c4c3f9f1baaa3a69187223ff3d3050628d4/results.txt"
@@ -158,20 +131,6 @@ print("Top 5 upregulated genes:", upregulated_genes_sorted["Gene"].head(5).tolis
 downregulated_genes_sorted = downregulated_genes_df.sort_values(by='log2FoldChange', ascending=False)
 print("Top 5 downregulated genes:", downregulated_genes_sorted["Gene"].head(5).tolist())
 
-## Top 5 Upregulated Genes:
-# 1. DTHD1: This gene encodes a protein containing a death domain, which is involved in signaling pathways and the apoptosis pathway.
-# 2. EMILIN2: Encodes a protein that is part of the extracellular matrix and is involved in processes like angiogenesis and platelet aggregation.
-# 3. PI16: Encodes a peptidase inhibitor that may inhibit cardiomyocyte growth and is involved in negative regulation of peptidase activity.
-# 4. C4orf45: This gene encodes a protein predicted to be localized in the cytoplasm and nucleus, but its specific function is not well characterized.
-# 5. FAM180B: Predicted to be located in the extracellular region and is associated with diseases like borderline leprosy and mosaic variegated aneuploidy syndrome.
-
-
-## Top 5 Downregulated Genes:
-# 1. FAM46B: Encodes a polyadenylation polymerase involved in the maintenance of translational efficiency and is essential for the viability of human embryonic stem cells.
-# 2. HS3ST3A1: Encodes a sulfotransferase involved in the biosynthesis of heparan sulfate, which plays a role in various biological activities.
-# 3. PMEL: Encodes a protein involved in melanosome maturation and melanin production, playing a crucial role in pigmentation.
-# 4. TNFAIP6: Encodes a protein involved in extracellular matrix stability and cell migration, and is associated with inflammation.
-# 5. COL4A2: Encodes a type IV collagen protein that is a major structural component of basement membranes and is involved in angiogenesis and tumor growth inhibition.
 
 # Task Code 2.7
 
@@ -227,14 +186,12 @@ mean_pulse_rounded = round(mean_pulse, 5)
 
 # Print the rounded mean value
 print(f"Mean Pulse (rounded to 5 decimal places): {mean_pulse_rounded}")
-# Output: Mean Pulse (rounded to 5 decimal places): 73.63382
 
 # Calculate the maximum value of the 'BPDia' column
 max_BPDia = df["BPDia"].max()
 
 # Calculate the minimum value of the 'BPDia' column
 min_BPDia = df["BPDia"].min()
-
 
 # Print the minimum and maximum values
 
@@ -263,7 +220,6 @@ print(f"Standard Deviation (std): {income_std_rounded}")
 print(f"Variance: {income_variance_rounded}")
 print(f"Variance: {income_variance_rounded}")
 
-## Task number 5
 plt.figure(figsize=(10, 6))  # Set the figure size
 sns.scatterplot(data=df, x="Weight", y="Height", hue="Gender")  # Scatter plot colored by Gender
 plt.title('Scatterplot of Weight vs Height (Gender)')  # Add a title to the plot
